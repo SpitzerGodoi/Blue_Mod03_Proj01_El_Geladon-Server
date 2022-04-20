@@ -23,7 +23,7 @@ const createPaletaController = (req, res) => {
     !paleta.foto ||
     !paleta.preco
   ) {
-    return res.send({ mensagem: "Você não preencheu todos os dados para adicionar uma nova paleta ao cardápio!" });
+    return res.status(400).send({ mensagem: "Você não preencheu todos os dados para adicionar uma nova paleta ao cardápio!" });
   }
   const newPaleta = paletasService.createPaletaService(paleta);
   res.send(newPaleta);
