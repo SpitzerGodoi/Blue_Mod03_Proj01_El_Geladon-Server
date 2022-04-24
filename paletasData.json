@@ -1,0 +1,30 @@
+[
+    {
+      "sabor": "Açaí com Leite Condensado",
+      "descricao":
+        "Quam vulputate dignissim suspendisse in est ante in nibh mauris.",
+      "foto": "./assets/IMG/acai-com-leite-condensado.png",
+      "preco": 10.0
+    },
+    {
+      "sabor": "Banana com Nutella",
+      "descricao":
+        "Quam vulputate dignissim suspendisse in est ante in nibh mauris.",
+      "foto": "./assets/IMG/banana-com-nutella.png",
+      "preco": 10.0
+    },
+    {
+      "sabor": "Chocolate Belga",
+      "descricao":
+        "Quam vulputate dignissim suspendisse in est ante in nibh mauris.",
+      "foto": "./assets/IMG/chocolate-belga.png",
+      "preco": 7.0
+    },
+    {
+      "sabor": "Limão",
+      "descricao":
+        "Quam vulputate dignissim suspendisse in est ante in nibh mauris.",
+      "foto": "./assets/IMG/limao.png",
+      "preco": 9.0
+    }
+  ]

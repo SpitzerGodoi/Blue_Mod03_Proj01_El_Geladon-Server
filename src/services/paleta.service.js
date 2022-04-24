@@ -1,62 +1,27 @@
-const paletas = [
-  {
-    id: 1,
-    sabor: 'Açaí com Leite Condensado',
-    descricao:
-      'Quam vulputate dignissim suspendisse in est ante in nibh mauris.',
-    foto: './assets/IMG/acai-com-leite-condensado.png',
-    preco: 10.0,
-  },
-  {
-    id: 2,
-    sabor: 'Banana com Nutella',
-    descricao:
-      'Quam vulputate dignissim suspendisse in est ante in nibh mauris.',
-    foto: './assets/IMG/banana-com-nutella.png',
-    preco: 10.0,
-  },
-  {
-    id: 3,
-    sabor: 'Chocolate Belga',
-    descricao:
-      'Quam vulputate dignissim suspendisse in est ante in nibh mauris.',
-    foto: './assets/IMG/chocolate-belga.png',
-    preco: 7.0,
-  },
-  {
-    id: 4,
-    sabor: 'Limão',
-    descricao:
-      'Quam vulputate dignissim suspendisse in est ante in nibh mauris.',
-    foto: './assets/IMG/limao.png',
-    preco: 9.0,
-  },
-];
+const Paletas = require('../models/Paleta');
 
-const findAllPaletasService = () => {
+const findAllPaletasService = async () => {
+  const paletas = await Paletas.find();
   return paletas;
 };
-const findByIdPaletasService = (idParam) => {
-  return (paleta = paletas.find((paleta) => paleta.id === idParam));
+
+const findByIdPaletasService = async (idParam) => {
+  const paleta = await Paletas.findById(idParam);
+  return paleta;
 };
 
-const createPaletaService = (newPaleta) => {
-  const newId = paletas.length + 1;
-  newPaleta.id = newId;
-  paletas.push(newPaleta);
-  return newPaleta;
+const createPaletaService = async (newPaleta) => {
+  const paletaCreated = await Paletas.create(newPaleta);
+  return paletaCreated;
 };
 
-const updatePaletaService = (id, paletaEdited) => {
-  paletaEdited['id'] = id;
-  const paletaIndex = paletas.findIndex((paleta) => paleta.id == id);
-  paletas[paletaIndex] = paletaEdited;
-  return paletaEdited;
+const updatePaletaService = async (id, paletaEdited) => {
+  const paletaUpdate = await Paletas.findByIdAndUpdate(id, paletaEdited);
+  return paletaUpdate;
 };
 
-const deletePaletaService = (id) => {
-  const paletaIndex = paletas.findIndex((paleta) => paleta.id == id);
-  return paletas.splice(paletaIndex, 1);
+const deletePaletaService = async (id) => {
+  return await Paletas.findByIdAndDelete(id);
 };
 
 module.exports = {
